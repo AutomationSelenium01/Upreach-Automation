@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<properties>
+<!-- Define the log file path -->
+<property name="logFile">./TestResults/logfile.log</property>
+<!-- Define the log pattern -->
+<property name="pattern">[%d{HH:mm:ss}] %-5p (%F:%L) - %m%n</property>
+</properties>
+<appenders>
+<!-- File Appender to save logs to a file -->
+<File name="File" fileName="${logFile}" append="false">
+<PatternLayout pattern="${pattern}"/>
+</File>
+<!-- Console Appender to print logs to the console -->
+<Console name="Console" target="SYSTEM_OUT">
+<PatternLayout pattern="${pattern}"/>
+</Console>
+</appenders>
+<loggers>
+<!-- Root logger level and appender reference -->
+<root level="all">
+<appender-ref ref="File"/> <!-- Add the file appender -->
+<appender-ref ref="Console"/> <!-- Add the console appender -->
+</root>
+</loggers>
+</configuration>
